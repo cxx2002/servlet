@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--注册Servlet-->
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <servlet-class>com.cxx.servlet.Context</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>404</servlet-name>
+        <servlet-class>com.cxx.servlet.ErrorServlet</servlet-class>
+    </servlet>
+
+    <!--Servlet的请求(映射)路径-->
+    <servlet-mapping>
+    <servlet-name>404</servlet-name>
+    <url-pattern>/error</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <!--自定义后缀请求-->
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <!--最高优先级请求--><!--优先级小于指定的路径，比如/hello;大于自定义后缀请求，比如*.do-->
+    <!--<servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>-->
+</web-app>

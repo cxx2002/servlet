@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>javaweb-03-maven</artifactId>
+    <groupId>com.cxx</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.cxx</groupId>
+  <artifactId>servlet-02</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <!--在build中配置resources，来防止我们资源导出失败的问题，因为可能在java包里面的文件会导不出来，因为Maven的约定大于配置-->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+  </build>
+
+
+
+</project>
